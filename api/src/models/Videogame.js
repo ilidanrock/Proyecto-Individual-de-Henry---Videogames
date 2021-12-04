@@ -11,8 +11,9 @@ module.exports = (sequelize) => {
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(30),
       allowNull: false,
+      
     },
     description:{
       type:DataTypes.TEXT,
@@ -24,13 +25,14 @@ module.exports = (sequelize) => {
     },
     rating:{
       type:DataTypes.FLOAT,
+      allowNull: true,
     },
     background_image: {
       type: DataTypes.STRING,
       allowNull: true,
     },
     platforms: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: false,
     },   
     createdInDb: { //Para hacer un llamado solamente a los juegos que cree en base de datos.
@@ -38,5 +40,5 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true
     }
-  });
+  },{ timestamps: false });
 };
