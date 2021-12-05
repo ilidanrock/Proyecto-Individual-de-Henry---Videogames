@@ -18,7 +18,7 @@ function App() {
     <div className="App">
         {/* COn el Switch la url solo va a coincidir con el path */}
         <Routes>
-          <Route path='/' element={<LandingPage/>}/>
+          <Route path='/'element={<LandingPage/>}/>
           <Route path='/Home' element={<AllGames/>}/>
           <Route path='/videogame' element={<VideoGameCreated/>}/>
           <Route path='/videogame/:id' element={<DetailGame/>}/>

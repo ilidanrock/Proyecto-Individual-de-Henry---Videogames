@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Paginado.css";
 // este componente va a renderizar los numeros de la paginacion.
 export default function Paginado({
   videoGamesPerPage,
@@ -11,17 +12,17 @@ export default function Paginado({
     pageNumbers.push(i);
   }
   return (
-    <nav>
-      <ul>
+      <div className='container_pagination'>
+      <ul className="pagination">
         {pageNumbers &&
           pageNumbers.map((n) => {
             return (
-              <li key={n}>
-                <button onClick={() => paginado(n)} >{n}</button>
-              </li>
+              <button key={n} className="btn" onClick={() => paginado(n)}>
+                {n}
+              </button>
             );
           })}
       </ul>
-    </nav>
+      </div>
   );
 }

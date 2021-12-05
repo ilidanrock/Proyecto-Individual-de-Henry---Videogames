@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { postVideogame, getAllGenres } from "../actions/index";
+import { postVideogame, getAllGenres , upDate} from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import { FcCheckmark } from "react-icons/fc";
 
@@ -40,9 +40,7 @@ export default function VideoGameCreated() {
   });
 
   const urlPatternValidation = (URL) => {
-    const regex = new RegExp(
-      /(https?:\/\/.*\.(?:png|jpg))/
-    );
+    const regex = new RegExp(/(https?:\/\/.*\.(?:png|jpg))/);
     return regex.test(URL);
   };
 
@@ -69,7 +67,10 @@ export default function VideoGameCreated() {
   }, [input]);
 
   useEffect(() => {
-    dispatch(getAllGenres);
+    dispatch(getAllGenres());
+    return () => {
+      dispatch(upDate())
+    }
   }, [dispatch]);
 
   //esta funcion es para guardar las cosas que el usuario esta escribiendo en el input en mi estado
@@ -201,7 +202,10 @@ export default function VideoGameCreated() {
           <div style={{ color: "#F61C04" }}>URL no es valida.</div>
         )}
         {input.isTrueValue === true && input.background_image.length > 0 && (
-          <div style={{ color: "#248dbf" }}> <FcCheckmark/> </div>
+          <div style={{ color: "#248dbf" }}>
+            {" "}
+            <FcCheckmark />{" "}
+          </div>
         )}
         <div>
           <label>Generos:</label>
@@ -228,7 +232,7 @@ export default function VideoGameCreated() {
                 <input
                   type="checkbox"
                   name={el}
-                  key={parseInt(el)}
+                  key={el}
                   value={input.platforms}
                   onChange={handleCheckPlatforms}
                 />

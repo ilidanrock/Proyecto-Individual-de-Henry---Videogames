@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { getVideoGamebyName } from "../actions";
+import { getVideoGamebyName , upDate } from "../actions";
 import {  useDispatch } from "react-redux";
 
 
@@ -14,6 +14,7 @@ export default function SearchBar() {
   }
   function handlerSummit(e) {
     e.preventDefault();
+    dispatch(upDate());
     dispatch(getVideoGamebyName(name));
     setName(e.target.value);
     const input = document.getElementById("search-bar-input");

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getGameDetail , ClearDetail } from "../actions/index";
+import { getGameDetail , upDate , clearDetail} from "../actions/index";
+import "../styles/Loading.css"
 
 export default function DetailGame() {
   const params = useParams().id;
@@ -10,14 +11,11 @@ export default function DetailGame() {
 
   useEffect(() => {
     dispatch(getGameDetail(params));
+    return()=>{
+      dispatch(upDate())
+      dispatch(clearDetail())
+    }
   }, [params, dispatch]);
-
-  // useEffect(() => {
-    
-  //   return () => {
-  //     dispatch(ClearDetail());
-  //   }
-  // }, [dispatch])
 
   const myGame = useSelector((state) => state.detail);
   return (
@@ -41,13 +39,20 @@ export default function DetailGame() {
             : myGame[0].platforms.map((e) => {
                 return <div key={e.platforms}>{e.platforms}</div>;
               })}
+          <Link to="/Home">
+            <button>Volver</button>
+          </Link>
         </div>
       ) : (
-        <h3>Loading..</h3>
+        
+        <div>
+          <div className="loading"></div>
+          <h3>Loading...</h3>
+        </div>
+        
+        
       )}
-      <Link to="/Home">
-        <button>Volver</button>
-      </Link>
+
     </div>
   );
 }

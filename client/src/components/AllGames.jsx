@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,18 +8,22 @@ import {
   filterCreated,
   orderByName,
   orderByRating,
+  upDate,
 } from "../actions";
 import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
-import ClipLoader from "react-spinners/ClipLoader";
+import errorLog from "../assets/error.png";
+import "../styles/Loading.css";
+import "../styles/AllGames.css";
 
 export default function AllGames() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   const allGenres = useSelector((state) => state.genres);
-  const infoGetted = useSelector((state) => state.infoGetted)
+  const infoGetted = useSelector((state) => state.infoGetted);
+  const nogameget = useSelector((state) => state.nogameget);
 
   const [orden, setOrden] = useState("");
   const [currentPage, setcurrentPage] = useState(1);
@@ -38,17 +42,14 @@ export default function AllGames() {
   };
 
   useEffect(() => {
-    
     dispatch(getAllGenres());
     dispatch(getVideogames());
- 
-  },[dispatch]);
-
-
+  }, [dispatch]);
 
   function handleonChargeGames(e) {
     e.preventDefault();
     dispatch(getVideogames());
+    dispatch(upDate());
   }
 
   function handleFilteredbyGenre(e) {
@@ -74,8 +75,7 @@ export default function AllGames() {
   }
 
   return (
-    <div>
-      <h1>Video games!</h1>
+    <div className="image_allGames">
       <Link to="/videogame">Crear videogame</Link>
       <button
         onClick={(e) => {
@@ -85,38 +85,45 @@ export default function AllGames() {
         Cargar los videojuegos completos.
       </button>
       <div>
-        <h4>{orden}</h4>
-        <select
-          onChange={(e) => {
-            handleSort(e);
-          }}
-        >
-          <option value="asc">Ascendente A-Z</option>
-          <option value="desc">Descendente Z-A</option>
-        </select>
-        <select
-          onChange={(e) => {
-            sortByRating(e);
-          }}
-        >
-          <option value="asc">Rating 1 -10 </option>
-          <option value="desc">Rating 10 - 1</option>
-        </select>
-        <select onChange={(e) => handlefilterCreated(e)}>
-          <option value="all">Todos</option>
-          <option value="created">Creados</option>
-          <option value="api">API</option>
-        </select>
-        <select onChange={(e) => handleFilteredbyGenre(e)}>
-          <option value="all">Todos</option>
-          {allGenres?.map((ele) => {
-            return (
-              <option key={ele.id} value={ele.name}>
-                {ele.name}
-              </option>
-            );
-          })}
-        </select>
+        <nav>
+          <h4>{orden}</h4>
+          <select
+            disabled={!infoGetted}
+            onChange={(e) => {
+              handleSort(e);
+            }}
+          >
+            <option value="asc">Ascendente A-Z</option>
+            <option value="desc">Descendente Z-A</option>
+          </select>
+          <select
+            disabled={!infoGetted}
+            onChange={(e) => {
+              sortByRating(e);
+            }}
+          >
+            <option value="asc">Rating 1 -10 </option>
+            <option value="desc">Rating 10 - 1</option>
+          </select>
+          <select onChange={(e) => handlefilterCreated(e)} disabled={!infoGetted}>
+            <option value="all">Todos</option>
+            <option value="created">Creados</option>
+            <option value="api">API</option>
+          </select>
+          <select
+            onChange={(e) => handleFilteredbyGenre(e)}
+            disabled={!infoGetted}
+          >
+            <option value="all">Todos</option>
+            {allGenres?.map((ele) => {
+              return (
+                <option key={ele.id} value={ele.name}>
+                  {ele.name}
+                </option>
+              );
+            })}
+          </select>
+        </nav>
 
         <SearchBar />
 
@@ -125,10 +132,10 @@ export default function AllGames() {
           allVideogames={allVideogames.length}
           paginado={paginado}
         ></Paginado>
-        {
-          !infoGetted?
-          <ClipLoader color={"#36d7b7"} size={150} />
-          : currentVideogames?.map((ele) => {
+        {!infoGetted ? (
+          <div className="loading"></div>
+        ) : (
+          currentVideogames?.map((ele) => {
             return (
               <GameCard
                 key={ele.id}
@@ -139,8 +146,16 @@ export default function AllGames() {
                 rating={ele.rating}
               />
             );
-          }) 
-        }
+          })
+        )}
+        <div hidden={!nogameget || !infoGetted}>
+          <img
+            src={errorLog}
+            alt="No se encontraron coincidencias en la busqueda"
+            width="100px"
+          />
+          <h3>No hay coincidencias en tu busqueda.</h3>
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ const initialState = {
   genres: [],
   detail: [],
   infoGetted:false,
+  nogameget: false,
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -111,6 +112,8 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: action.payload,
+        nogameget: false,
+        infoGetted:true,
       };
     case "POST_CHARACTER": // posiblemente este de mas
       return {
@@ -121,6 +124,23 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: [action.payload],
       };
+    case "CLEAR_DETAIL":
+      return{
+        ...state,
+        detail:[],
+      }
+    case "UPDATE_INFO":
+      return{
+        ...state,
+        infoGetted: false
+      }
+    case "NO_FOUND_GAME":
+      return{
+        ...state,
+        videogames: action.payload,
+        nogameget: true,
+        infoGetted:true,
+      }
     default:
       return state;
   }

@@ -1,0 +1,45 @@
+.landing{
+    box-sizing: border-box;
+    background-image: url(https://images.pexels.com/photos/159393/gamepad-video-game-controller-game-controller-controller-159393.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1158.png), auto !important;
+        background-position: 65% center;
+    display: flex;
+    height: 100vh;
+    min-height: 30rem;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.boton {
+    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1158.png), auto !important;
+    background-color: rgba(12, 166, 190, 0.85);
+    border-radius: 10px 10px;
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+    text-shadow: 0.0625rem 0.0625rem 0.5rem #07cbe9, 0 0 1em #d4d1bd,
+      0 0 0.2em #07cbe9;
+    border: 4px outset #c2dee9;
+    margin-top: 60px;
+    outline: none;
+    
+  }
+  .boton:hover {
+    text-shadow: 0.0625rem 0.0625rem 0.5rem black, 0 0 1em black, 0 0 0.2em black;
+    
+  }
+
+.mensaje{
+    background-image: none;
+font: 4em sans-serif;
+font-weight: 600;
+color: #6f918c;
+  }
+
+.container_pagination{
+  display: flex;
+    justify-content: center;
+}

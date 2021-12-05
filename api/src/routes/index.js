@@ -15,7 +15,7 @@ const getApiGames = async () => {
   let apiInfo = [];
 
 
-  const pages = [`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`];
+  const pages = [`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`]; 
 
   for (let i = 0; i < 3; i++) {
     const resp = await axios.get(`${pages[i]}`);

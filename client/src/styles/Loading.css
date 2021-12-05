@@ -1,0 +1,26 @@
+.loading{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.loading::after{
+
+    content: "";
+    width: 80px;
+    height:80px;
+    border: 10px solid  transparent;
+    border-top-color: rgb(0, 217, 255);
+    border-top-color: rgb(0, 217 ,255);
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+
+}
+@keyframes loading {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
