@@ -13,11 +13,11 @@ const router = Router();
 
 const getApiGames = async () => {
   let apiInfo = [];
-
+  axios.all()
 
   const pages = [`https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`]; 
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 1; i++) {
     const resp = await axios.get(`${pages[i]}`);
     pages.push(resp.data.next);
       //Por cada iteracion

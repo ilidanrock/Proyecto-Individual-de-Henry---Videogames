@@ -1,0 +1,25 @@
+.card{
+    background-color: rgb(223, 220, 208);
+    margin: 0.5rem 2rem .5rem 2rem;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(192, 167, 55);
+    border-radius: 0.5rem;
+    width: 30rem;
+    box-shadow: -11px 13px 8px 0 rgb(0 0 0 / 20%);
+    transition: 0.5s;
+  }
+
+.title{
+    text-decoration: none;
+    color: blue;
+    font-size: 1.6rem;
+}
+.generos{
+  display: flex;
+  justify-content: center;
+}
+.generos div{
+  margin:  0 0.5rem 0 0.5rem;
+  font-size: 1.3rem;
+}

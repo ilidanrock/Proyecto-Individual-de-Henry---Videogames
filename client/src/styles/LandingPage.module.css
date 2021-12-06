@@ -4,8 +4,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1158.png), auto !important;
-        background-position: 65% center;
+    background-position: 65% center;
     display: flex;
     height: 100vh;
     min-height: 30rem;
@@ -14,7 +13,7 @@
    
 }
 .boton {
-    cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1158.png), auto !important;
+
     background-color: rgba(12, 166, 190, 0.85);
     border-radius: 10px 10px;
     font-size: 20px;
@@ -39,7 +38,6 @@ font-weight: 600;
 color: #6f918c;
   }
 
-.container_pagination{
-  display: flex;
-    justify-content: center;
-}
+
+
+

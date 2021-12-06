@@ -132,7 +132,8 @@ function rootReducer(state = initialState, action) {
     case "UPDATE_INFO":
       return{
         ...state,
-        infoGetted: false
+        infoGetted: false,
+        nogameget: false
       }
     case "NO_FOUND_GAME":
       return{

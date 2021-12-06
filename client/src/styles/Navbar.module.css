@@ -1,0 +1,63 @@
+.navbar{
+    width: 96%;
+    padding: 0.3125rem;
+    margin: 2rem 0 2rem 0.5rem;
+    border: #a87e3e 0.09rem solid;
+    border-radius: 1.875rem 0rem 1.875rem 0rem;
+
+}
+.searchCreate{
+    display: flex;
+    margin-right: 1rem;
+}
+.filters{
+    margin-left: 1rem;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    top: 0rem;
+    width: 100%;
+    color: #ab8347;
+    border: #dfc981;
+    padding-left: 1rem;
+    flex-wrap: nowrap;
+    border-radius: 1.6rem 0rem 1.6rem 0rem;
+    background-color: rgb(218, 213, 213);
+    outline: none;
+    height: auto;
+
+}
+.order{
+    border: none;
+    background-color: rgb(218, 213, 213);
+    color: #a87e3e;
+    font-size: 1.8rem;
+    font-family: "Marcellus SC", serif;
+    
+}
+.orderGeneros{
+    width: 9rem;
+    border: none;
+    background-color: rgb(218, 213, 213);
+    color: #a87e3e;
+    font-size: 1.8rem;
+    font-family: "Marcellus SC", serif;
+}
+.create{
+    background-color: rgba(12, 166, 190, 0.85);
+    border-radius: 10px 10px;
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 0.0625rem 0.0625rem 0.5rem #07cbe9, 0 0 1em #d4d1bd,
+      0 0 0.2em #07cbe9;
+    border: 0.5px outset #c2dee9;
+    text-decoration: none;
+    padding: 0 0.7rem 0 0.7rem ;
+   
+}
+.create p {
+    margin: 0 0.5px 0 0.5px; 
+}

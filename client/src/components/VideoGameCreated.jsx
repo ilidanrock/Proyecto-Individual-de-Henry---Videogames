@@ -2,7 +2,8 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postVideogame, getAllGenres , upDate} from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
-import { FcCheckmark } from "react-icons/fc";
+import s from '../styles/VideoGameCreated.module.css'
+import s1 from '../styles/AllGames.module.css'
 
 export default function VideoGameCreated() {
   const dispatch = useDispatch();
@@ -58,7 +59,11 @@ export default function VideoGameCreated() {
     if (
       input.name.length > 0 &&
       input.description.length > 0 &&
-      input.platforms.length > 0
+      input.platforms.length > 0 &&
+      input.released  &&
+      input.rating &&
+      input.isTrueValue &&
+      input.genre >0
     ) {
       return false;
     } else {
@@ -112,7 +117,6 @@ export default function VideoGameCreated() {
 
   function handlerSummit(e) {
     e.preventDefault();
-    console.log(input);
     dispatch(postVideogame(input));
     alert("Videogame creado");
     setInput({
@@ -127,68 +131,80 @@ export default function VideoGameCreated() {
     history("/home");
   }
   return (
-    <div>
+    <div className={s.testbox}>
       <Link to="/home">
-        <button>Volver</button>
+        <button className={s1.refresh}>Volver</button>
       </Link>
       <h1>Crea tu videogame</h1>
       <form onSubmit={handlerSummit}>
         <div>
-          <label>Nombre:</label>
-          <input
-            name="name"
-            placeholder="Nombre del videojuego"
-            type="text"
-            value={input.name}
-            onChange={(e) => {
-              if (e.target.value.length <= 30) {
-                return handleChange(e);
-              }
-            }}
-            autoComplete="off"
-          />
-          <span>{input.name.length} de 30 caracteres.</span>
+          <label className={s.title}>Nombre:</label>
+          <div className={s.nameAdvice}>
+            <input
+              className={s.inputForm}
+              name="name"
+              placeholder="Nombre del videojuego"
+              type="text"
+              value={input.name}
+              onChange={(e) => {
+                if (e.target.value.length <= 30) {
+                  return handleChange(e);
+                }
+              }}
+              autoComplete="off"
+            />
+            <span>{input.name.length} de 30 caracteres.</span>
+          </div>
         </div>
         <div>
-          <label>Descripción:</label>
-          <textarea
-            name="description"
-            placeholder="Escribe la descripcion..."
-            type="text"
-            value={input.description}
-            onChange={(e) => {
-              if (e.target.value.length <= 5000) {
-                return handleChange(e);
-              }
-            }}
-          />
+          <label className={s.title}>Descripción:</label>
+          <div className={s.describeAdvice}>
+            <textarea
+              className={s.inputForm}
+              name="description"
+              placeholder="Escribe la descripcion..."
+              type="text"
+              value={input.description}
+              onChange={(e) => {
+                if (e.target.value.length <= 5000) {
+                  return handleChange(e);
+                }
+              }}
+              rows='5'
+            />
+            <span>{input.description.length} de 5000 caracteres.</span>
+          </div>
         </div>
-        <span>{input.description.length} de 5000 caracteres.</span>
+        
         <div>
-          <label>Fecha de lanzamiento:</label>
+          <label className={s.title}>Fecha de lanzamiento:</label>
           <input
             name="released"
             type="date"
             value={input.released}
             onChange={handleChange}
             max={today}
+            className={s.inputForm}
           />
         </div>
         <div>
-          <label>Rating:</label>
-          <input
-            name="rating"
-            type="range"
-            value={input.rating}
-            onChange={handleChange}
-            min="0"
-            max="10"
-            step="0.01"
-          />
-          <span>{input.rating}</span>
+          <label className={s.title}>Rating:</label>
+          <div >
+              <input
+                name="rating"
+                type="range"
+                value={input.rating}
+                onChange={handleChange}
+                min="0"
+                max="5"
+                step="0.01"
+                className={s.inputForm}
+              />
+              <span >{input.rating}</span>
+            </div>
         </div>
-        <div>
-          <label>Imagen:</label>
+        <div className={s.title}>
+          <label >Imagen:</label>
           <input
             name="background_image"
             placeholder="URL de la imagen"
@@ -196,19 +212,19 @@ export default function VideoGameCreated() {
             value={input.background_image}
             onChange={changeUrl}
             autoComplete="off"
+            className={s.inputForm}
           />
         </div>
         {input.isTrueValue === false && (
-          <div style={{ color: "#F61C04" }}>URL no es valida.</div>
+          <div style={{  margin: "0 0 2rem 0" , color: "#F61C04" }}>URL no es valida.</div>
         )}
         {input.isTrueValue === true && input.background_image.length > 0 && (
-          <div style={{ color: "#248dbf" }}>
-            {" "}
-            <FcCheckmark />{" "}
+          <div style={{ margin: "1rem" , color: "#248dbf" }}>
+            URL valida.
           </div>
         )}
         <div>
-          <label>Generos:</label>
+          <label className={s.title}>Generos:</label>
           {genres?.map((el) => {
             return (
               <label>
@@ -225,7 +241,7 @@ export default function VideoGameCreated() {
           })}
         </div>
         <div>
-          <label>Plataformas:</label>
+          <label className={s.title}>Plataformas:</label>
           {platforms_filtered?.map((el, i) => {
             return (
               <label>
@@ -235,15 +251,19 @@ export default function VideoGameCreated() {
                   key={el}
                   value={input.platforms}
                   onChange={handleCheckPlatforms}
+                  className={s.inputForm}
                 />
                 {el}
               </label>
             );
           })}
         </div>
-        <button type="submit" disabled={disabledSummit}>
-          Enviar
-        </button>
+        <div className={s.btnBlock}>
+          <button type="submit" disabled={disabledSummit} >
+            Enviar
+          </button>
+          <span hidden={!disabledSummit}style={{ color: "#F61C04" }} >Debe llenar todos los campos del formulario.</span>
+        </div>
       </form>
     </div>
   );

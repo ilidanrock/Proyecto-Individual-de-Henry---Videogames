@@ -24,4 +24,8 @@
     background-color: turquoise;
     color: white;
   }
-  
+  .containerPagination{
+    display: flex;
+      justify-content: center;
+    margin-bottom: 1rem;
+  }

@@ -1,0 +1,88 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+}
+
+form {
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    height: auto;
+}
+
+h1 {
+    color: azure;
+    margin: 30px 0 30px 0;
+    text-align: center;
+}
+.inputForm{
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+    
+input:hover, textarea:hover, select:hover {
+outline: none;
+border: 1px solid #095484;
+}
+textarea {
+    margin-bottom: 3px;
+    }
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    }
+.item i, input[type="date"]::-webkit-calendar-picker-indicator {
+font-size: 20px;
+color: #a9a9a9;
+}
+.nameAdvice{
+    display: flex;
+
+}
+.title{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.describeAdvice{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.testbox{
+    margin: 5rem;
+}
+.btnBlock {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+.btnBlock button {
+    margin-left: 8rem;
+    width: 150px;
+    padding: 10px;
+    border: none;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    background-color: #095484;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    }
+.btnBlock button:hover {
+    background-color: #0666a3;
+    }

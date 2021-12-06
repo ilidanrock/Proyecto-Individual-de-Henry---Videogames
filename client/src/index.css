@@ -17,6 +17,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
+  /* background-image: url("https://fondosmil.com/fondo/3553.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 code {

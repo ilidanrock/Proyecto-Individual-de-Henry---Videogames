@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getGameDetail , upDate , clearDetail} from "../actions/index";
-import "../styles/Loading.css"
+import  s from "../styles/Loading.module.css"
 
 export default function DetailGame() {
   const params = useParams().id;
@@ -46,7 +46,7 @@ export default function DetailGame() {
       ) : (
         
         <div>
-          <div className="loading"></div>
+          <div className= {s.loading}></div>
           <h3>Loading...</h3>
         </div>
         
