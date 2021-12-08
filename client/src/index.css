@@ -2,30 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  
+   
 }
 html{
-  font-size: 62.5%;
-  font-family: 'DM Sans', sans-serif;
+  font-size: 70%;
+  font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
-  /* background-image: url("https://fondosmil.com/fondo/3553.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+

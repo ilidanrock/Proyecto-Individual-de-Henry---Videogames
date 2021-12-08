@@ -1,21 +1,13 @@
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Nunito', sans-serif;
-    color: #384047;
-}
 
 form {
-    max-width: 350px;
-    margin: 10px auto;
+    /* max-width: 350px; */
+    margin: 0 auto;
     padding: 10px 20px;
     background: #f4f7f8;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     height: auto;
+    width: 500px;
 }
 
 h1 {
@@ -38,17 +30,13 @@ border: 1px solid #095484;
 }
 textarea {
     margin-bottom: 3px;
+    resize: none;
     }
-input[type="date"]::-webkit-inner-spin-button {
-    display: none;
-    }
-.item i, input[type="date"]::-webkit-calendar-picker-indicator {
-font-size: 20px;
-color: #a9a9a9;
-}
+
 .nameAdvice{
     display: flex;
-
+    flex-direction: column;
+    margin-bottom: 2rem;
 }
 .title{
     font-size: 1.5rem;
@@ -68,15 +56,14 @@ color: #a9a9a9;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
     }
 
 .btnBlock button {
-    margin-left: 8rem;
+    margin:auto;
     width: 150px;
     padding: 10px;
     border: none;
-    -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
     border-radius: 5px; 
     background-color: #095484;
     font-size: 16px;
@@ -86,3 +73,41 @@ color: #a9a9a9;
 .btnBlock button:hover {
     background-color: #0666a3;
     }
+
+.selections {
+    margin: 0 auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 0 0 8px 8px;
+    height: auto;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.platforms{
+    margin: 1.5rem 0 1.5rem 0;
+}
+.generos{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr ; 
+    gap: 5px 0px
+
+}
+.platform{
+    display: flex;
+    justify-content: center;
+    padding:0.5rem;
+    height:3rem;
+}
+
+.platform button{
+    width: 2rem;
+}
+.platform h3{
+
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    background-color: #095484;
+    color: azure;
+}

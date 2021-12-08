@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getVideoGamebyName , upDate } from "../actions";
 import {  useDispatch } from "react-redux";
 import s from "../styles/Search.module.css"
-
+import allgames from "../styles/AllGames.module.css"
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -23,16 +23,16 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={s.search}>
-      <input
+    <div className={s.divSearch}>
+      <input className={s.search}
         type="text"
-        placeholder="Buscar videogame"
+        placeholder="Busqueda..."
         onChange={(e) => {
           handleInputChange(e);
         }}
         id="search-bar-input"
       />
-      <button type="submit" onClick={(e) => handlerSummit(e)}>
+      <button className={allgames.refresh} type="submit" onClick={(e) => handlerSummit(e)}>
         Buscar
       </button>
     </div>

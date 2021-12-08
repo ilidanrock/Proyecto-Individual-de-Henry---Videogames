@@ -1,5 +1,5 @@
 .navbar{
-    width: 96%;
+    width: 99%;
     padding: 0.3125rem;
     margin: 2rem 0 2rem 0.5rem;
     border: #a87e3e 0.09rem solid;
@@ -35,7 +35,6 @@
     background-color: rgb(218, 213, 213);
     color: #a87e3e;
     font-size: 1.8rem;
-    font-family: "Marcellus SC", serif;
     
 }
 .orderGeneros{
@@ -44,7 +43,6 @@
     background-color: rgb(218, 213, 213);
     color: #a87e3e;
     font-size: 1.8rem;
-    font-family: "Marcellus SC", serif;
 }
 .create{
     background-color: rgba(12, 166, 190, 0.85);

@@ -1,25 +1,51 @@
 .card{
     background-color: rgb(223, 220, 208);
-    margin: 0.5rem 2rem .5rem 2rem;
+    margin: 0.5rem 6rem .5rem 6rem;
     border-style: solid;
     border-width: 3px;
     border-color: rgb(192, 167, 55);
     border-radius: 0.5rem;
-    width: 30rem;
+    width: auto;
     box-shadow: -11px 13px 8px 0 rgb(0 0 0 / 20%);
     transition: 0.5s;
   }
 
 .title{
     text-decoration: none;
-    color: blue;
+    color: #a87e3e;
     font-size: 1.6rem;
+    padding: 1rem;
 }
-.generos{
-  display: flex;
-  justify-content: center;
-}
-.generos div{
-  margin:  0 0.5rem 0 0.5rem;
+.genero{
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  background-color:#a87e3e; ;
+  width: 6.8rem;
+  border-radius: 1rem;
+  text-align: center;
   font-size: 1.3rem;
+}
+.generos {
+  padding:  1rem 0.4rem 1rem 0.4rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.title img{
+  padding-top: 1rem;
+}
+
+.titlesGenRa{
+  padding-top: 0.2rem;
+}
+.titlesGenRa div{
+  margin: 0.1rem ;
+  font-size: 1.3rem;
+}
+.titlesGenRa h3{
+  font-size: 1.4rem;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -10,20 +10,13 @@
       0 0 0.2em #07cbe9;
     border: 4px outset #c2dee9;
     outline: none;
+    padding: 0 1rem 0 1rem;
+    text-decoration: none;
 }
 .gripcards{
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
     gap: 30px 0px; 
-    margin-left: 7rem;
-    
-    /* display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, 1fr , 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(100px, 300px));
-    grid-template-rows: repeat(auto-fill, minmax(100px, 150px));
-    grid-gap: 30px;
-    grid-auto-rows: auto; */
-    
+    margin-left: auto;
 }

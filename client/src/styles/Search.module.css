@@ -1,3 +1,22 @@
 .search{
-    margin: 0.25rem 0 0 1rem;
+    top: 1rem;
+    border: 0;
+    width: 130px;
+    color: #a87e3e;
+    font-size: 1.5rem;
+    background-color: rgb(218, 213, 213);
+    text-transform: capitalize;
+    outline: none;
+    border-style: solid;
+}
+
+.divSearch{
+    top: 0rem;
+    width: 100%;
+    justify-content: space-evenly;;
+    padding-left: 1rem;
+    align-items: center;
+    display: flex;
+    background-color: rgb(218, 213, 213);
+
 }

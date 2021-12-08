@@ -9,6 +9,7 @@ import {
 } from "../actions";
 import SearchBar from "./SearchBar";
 import s from "../styles/Navbar.module.css";
+import allgames from "../styles/AllGames.module.css"
 
 export default function Navbar({ orden, setcurrentPage, setOrden }) {
   const allGenres = useSelector((state) => state.genres);
@@ -86,7 +87,7 @@ export default function Navbar({ orden, setcurrentPage, setOrden }) {
           </select>
         </div>
         <div className={s.searchCreate}>
-          <Link className={s.create} to="/videogame"><p>Crea tu videogame</p></Link>
+          <Link className={allgames.refresh} to="/videogame"><p>Crea tu videogame.</p></Link>
           <SearchBar className={s.search} />
         </div>
       </dir>
