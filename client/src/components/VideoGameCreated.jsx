@@ -42,7 +42,6 @@ export default function VideoGameCreated() {
       return plat.name;
     })
   ).flat(Infinity);
-
   const platforms_filtered = plataforms_raw.reduce((acc, item) => {
     if (!acc.includes(item) && item !== undefined) {
       acc.push(item);
@@ -50,7 +49,7 @@ export default function VideoGameCreated() {
     return acc;
   }, []);
 
-  console.log(platforms_filtered)
+  
   //---------------------------------------------------------------------
 
   //----------Validacion de la URL de la imagen---------

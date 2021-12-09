@@ -37,6 +37,7 @@ export default function AllGames() {
     dispatch(upDate());
   }
 
+
   useEffect(() => {
     dispatch(getAllGenres());
     dispatch(getVideogames());

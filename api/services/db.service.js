@@ -3,36 +3,36 @@ const { Genre, Videogame } = require("../src/db");
 const { genres } = require("./api.service");
 
 const getDBGames = async () => {
-return await Videogame.findAll({
-include: {
-    model: Genre,
-    attibutes: ["name"],
-    through: {
-    attributes: [],
+  return await Videogame.findAll({
+    include: {
+      model: Genre,
+      attibutes: ["name"],
+      through: {
+        attributes: [],
+      },
     },
-},
-});
+  });
 };
 const gameBD = async (id) => {
-return await Videogame.findByPk(id, {
-include: [
-    {
-    model: Genre,
-    through: {
-        attributes: [],
-    },
-    },
-],
-});
+  return await Videogame.findByPk(id, {
+    include: [
+      {
+        model: Genre,
+        through: { // esto 
+          attributes: [],
+        },
+      },
+    ],
+  });
 };
 
 const putGenresInDB = async () => {
-const genEach = await genres();
-genEach.forEach((ele) => {
-Genre.findOrCreate({
-    where: { name: ele },
-});
-});
+  const genEach = await genres();
+  genEach.forEach((ele) => {
+    Genre.findOrCreate({
+      where: { name: ele },
+    });
+  });
 };
 
 const createdVideogame = async (

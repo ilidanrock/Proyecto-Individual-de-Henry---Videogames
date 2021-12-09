@@ -14,9 +14,9 @@ const getVideoGames = async (req, res, next) => {
     const { name } = req.query;
     let gamesTotal = await getAllGames();
     if (name) {
-      let gameName = gamesTotal.filter((el) =>
+      let gameName = (gamesTotal.filter((el) =>
         el.name.toLowerCase().includes(name.toLowerCase())
-      );
+      )).slice(0,15);
       gameName.length
         ? res.send(gameName).status(200)
         : res.send([]).status(400); //rompe aqui
@@ -32,9 +32,10 @@ const getVideoGames = async (req, res, next) => {
 
 const getVideogameByID =  async (req, res, next) => {
     const id = req.params.id;
-    console.log(typeof id);
     if (id.includes("-")) {
       try {
+
+        gameBD(id).then()
         const game = await gameBD(id)
         console.log(game);
         return res.status(200).json(game);
