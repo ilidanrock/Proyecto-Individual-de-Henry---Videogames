@@ -8,6 +8,12 @@
     width: auto;
     box-shadow: -11px 13px 8px 0 rgb(0 0 0 / 20%);
     transition: 0.5s;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
 
 .title{
@@ -38,7 +44,7 @@
   padding-top: 0.2rem;
 }
 .titlesGenRa div{
-  margin: 0.1rem ;
+  margin: 0.5rem 0.5rem ;
   font-size: 1.3rem;
 }
 .titlesGenRa h3{

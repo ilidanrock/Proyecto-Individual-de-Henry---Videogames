@@ -21,7 +21,6 @@ router.route("/videogame/:id").get(getVideogameByID);
 router.route("/genres").get(allGenres);
 
 //----------Ruta de post
-
 router.route("/videogame").post(postGame);
 
 module.exports = router;

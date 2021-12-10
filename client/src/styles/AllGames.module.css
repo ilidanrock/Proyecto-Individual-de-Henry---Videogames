@@ -1,16 +1,16 @@
 
 .refresh{
-    margin: 1rem 0 1rem 0;
+    margin: 5px 0;
     background-color: rgba(12, 166, 190, 0.85);
     border-radius: 10px 10px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: normal;
     color: white;
     text-shadow: 0.0625rem 0.0625rem 0.5rem #07cbe9, 0 0 1em #d4d1bd,
       0 0 0.2em #07cbe9;
     border: 4px outset #c2dee9;
     outline: none;
-    padding: 0 1rem 0 1rem;
+    padding: 2px 14px 2px 14px;
     text-decoration: none;
 }
 .gripcards{

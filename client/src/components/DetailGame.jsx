@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getGameDetail, upDate, clearDetail } from "../actions/index";
 import s from "../styles/Loading.module.css";
 import s1 from "../styles/DetailGame.module.css";
-import btn from "../styles/AllGames.module.css"
+import btn from "../styles/AllGames.module.css";
 
 export default function DetailGame() {
   const params = useParams().id;
@@ -44,19 +44,16 @@ export default function DetailGame() {
             dangerouslySetInnerHTML={{ __html: myGame[0].description }}
           />
           <h2>Rating : </h2> <p className={s1.rating}> {myGame[0].rating}</p>
-
           <h2>Plataformas: </h2>
           <div className={s1.generos}>
-            
-          {myGame[0].id.toString().includes("-")
-            ? myGame[0].platforms.map((e) => {
-                return <div key={e}>{e}</div>;
-              })
-            : myGame[0].platforms.map((e) => {
-                return <div key={e.platforms}>{e.platforms}</div>;
-              })}
+            {myGame[0].id.toString().includes("-")
+              ? myGame[0].platforms.map((e) => {
+                  return <div key={e}>{e}</div>;
+                })
+              : myGame[0].platforms.map((e) => {
+                  return <div key={e.platforms}>{e.platforms}</div>;
+                })}
           </div>
-
           <div>
             <h2>Fecha de lanzamiento: </h2>
             <p>{myGame[0].released}</p>
@@ -66,9 +63,8 @@ export default function DetailGame() {
           </Link>
         </div>
       ) : (
-        <div>
-          <div className={s.loading}></div>
-          <h3  style={{ color: "#f1f1f1" , fontSize:"3rem"}}>Loading</h3>
+        <div className={s.loading}>
+          <h3 style={{ color: "#f1f1f1", fontSize: "3rem" }}>Loading</h3>
         </div>
       )}
     </div>

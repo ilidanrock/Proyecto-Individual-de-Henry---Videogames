@@ -13,7 +13,7 @@ export default function GameCard({
     <div className={s.card}>
       <Link to={`/videogame/${id}`} className={s.title}>
         <h3>{name}</h3>
-        <img src={background_image} alt="" width="200px" height="200px" />
+        <img className={s.figure} src={background_image} alt="" width="100%" height="auto" />
       </Link>
       <div>
         <div className={s.titlesGenRa}>

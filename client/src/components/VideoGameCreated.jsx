@@ -177,7 +177,7 @@ export default function VideoGameCreated() {
       <h1>Crea tu videogame</h1>
       <form onSubmit={handlerSummit}>
         <div>
-          <label className={s.title}>Nombre:</label>
+          <label className={s.title} >Nombre:</label>
           <div className={s.nameAdvice}>
             <input
               className={s.inputForm}
@@ -193,8 +193,8 @@ export default function VideoGameCreated() {
               autoComplete="off"
             />
             <span>{input.name.length} de 30 caracteres.</span>
-            {!input.name.length > 0 && (
-              <span style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+            {input.name.length === 0 && (
+              <span style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right" }}>
                 <h3>Escribe el nombre del videojuego.</h3>
               </span>
             )}
@@ -218,7 +218,7 @@ export default function VideoGameCreated() {
             />
             <span>{input.description.length} de 5000 caracteres.</span>
             {!input.description.length > 0 && (
-              <span style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+              <span style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right" }}>
                 <h3>Escribe la descripcion del videojuego.</h3>
               </span>
             )}
@@ -236,7 +236,7 @@ export default function VideoGameCreated() {
           />
         </div>
         {!isValidDate(input.released) && (
-          <div style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+          <div style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right"  }}>
             <h3>Falta la fecha de lanzamiento.</h3>
           </div>
         )}
@@ -257,7 +257,7 @@ export default function VideoGameCreated() {
             parseFloat(input.rating) ? (
               <span>{input.rating}</span>
             ) : (
-              <div style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+              <div style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right"  }}>
                 <h3>Debes colocar el rating.</h3>
               </div>
             )}
@@ -276,7 +276,7 @@ export default function VideoGameCreated() {
           />
         </div>
         {input.isTrueValue === false && (
-          <div style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+          <div style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right"  }}>
             <h3>URL no es valida.</h3>
           </div>
         )}
@@ -311,7 +311,7 @@ export default function VideoGameCreated() {
             })}
           </select>
           {input.platforms.length === 0 && (
-            <div style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+            <div style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right" }}>
               <h3>Falta escoger las plataformas.</h3>
             </div>
           )}
@@ -335,7 +335,7 @@ export default function VideoGameCreated() {
           })}
         </div>
         {input.genre.length === 0 && (
-          <div style={{ margin: "0 0 2rem 0", color: "#F61C04" }}>
+          <div style={{ margin: "0 0 1rem 0", color: "#F61C04", textAlign: "right" }}>
             <h3>Escoge al menos un genero.</h3>
           </div>
         )}
@@ -343,7 +343,7 @@ export default function VideoGameCreated() {
           <button type="submit" disabled={disabledSummit}>
             Enviar
           </button>
-          <span hidden={!disabledSummit} style={{ color: "#F61C04" }}>
+          <span hidden={!disabledSummit} style={{ color: "#F61C04", textAlign: "right" }}>
           <h3>Los campos marcados en rojo son obligatorios.</h3>
           </span>
         </div>

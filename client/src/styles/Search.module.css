@@ -1,13 +1,15 @@
 .search{
     top: 1rem;
-    border: 0;
+    border: 1px solid #a87e3e;
+    border-radius: 5px;
     width: 130px;
     color: #a87e3e;
-    font-size: 1.5rem;
-    background-color: rgb(218, 213, 213);
+    font-size: 1.2rem;
+    background-color: #f7f5f5;
     text-transform: capitalize;
     outline: none;
     border-style: solid;
+    padding: 5px;
 }
 
 .divSearch{

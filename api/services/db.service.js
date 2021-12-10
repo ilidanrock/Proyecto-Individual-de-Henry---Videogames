@@ -13,12 +13,13 @@ const getDBGames = async () => {
     },
   });
 };
-const gameBD = async (id) => {
-  return await Videogame.findByPk(id, {
+const gameBD = (id) => {
+  return Videogame.findByPk(id, {
     include: [
       {
         model: Genre,
-        through: { // esto 
+        through: {
+          // esto es para hacer validaciones
           attributes: [],
         },
       },
@@ -35,7 +36,28 @@ const putGenresInDB = async () => {
   });
 };
 
-const createdVideogame = async (
+const videogameCreated = (
+  name,
+  description,
+  released,
+  background_image,
+  rating,
+  platforms,
+  createdInDb
+) =>
+  Videogame.create({
+    name,
+    description,
+    released,
+    background_image,
+    rating,
+    platforms,
+    createdInDb,
+  });
+
+const generoDb = (genre) => Genre.findAll({ where: { name: genre } });
+
+const createdVideogame =(
   name,
   description,
   released,
@@ -45,17 +67,22 @@ const createdVideogame = async (
   createdInDb,
   genre
 ) => {
-  let videogameCreated = await Videogame.create({
-    name,
-    description,
-    released,
-    background_image,
-    rating,
-    platforms,
-    createdInDb,
+  Promise.all([
+    videogameCreated(
+      name,
+      description,
+      released,
+      background_image,
+      rating,
+      platforms,
+      createdInDb
+    ),
+    generoDb(genre),
+  ]).then(([result1, result2]) => {
+    result1.addGenre(result2);
+    console.log("done");
   });
-  let generoDb = await Genre.findAll({ where: { name: genre } });
-  videogameCreated.addGenre(generoDb);
+  // videogameCreated.addGenre(generoDb);
 };
 module.exports = {
   getDBGames,
@@ -63,3 +90,4 @@ module.exports = {
   putGenresInDB,
   createdVideogame,
 };
+// hasta aqui

@@ -3,11 +3,12 @@
 form {
     /* max-width: 350px; */
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 20px 20px;
     background: #f4f7f8;
     border-radius: 8px 8px 0 0;
     height: auto;
     width: 500px;
+    text-align: left;
 }
 
 h1 {
@@ -24,10 +25,10 @@ h1 {
     padding: 5px;
 }
     
-input:hover, textarea:hover, select:hover {
+/* input:hover, textarea:hover, select:hover {
 outline: none;
 border: 1px solid #095484;
-}
+} */
 textarea {
     margin-bottom: 3px;
     resize: none;
@@ -36,7 +37,7 @@ textarea {
 .nameAdvice{
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 .title{
     font-size: 1.5rem;
@@ -69,6 +70,7 @@ textarea {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
+    
     }
 .btnBlock button:hover {
     background-color: #0666a3;
@@ -92,7 +94,8 @@ textarea {
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr ; 
-    gap: 5px 0px
+    gap: 5px 0px;
+    text-align: center;
 
 }
 .platform{
