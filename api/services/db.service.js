@@ -6,7 +6,7 @@ const getDBGames = async () => {
   return await Videogame.findAll({
     include: {
       model: Genre,
-      attibutes: ["name"],
+      attributes: ["name"],
       through: {
         attributes: [],
       },
@@ -57,7 +57,7 @@ const videogameCreated = (
 
 const generoDb = (genre) => Genre.findAll({ where: { name: genre } });
 
-const createdVideogame =(
+const createdVideogame = (
   name,
   description,
   released,

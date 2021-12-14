@@ -6,6 +6,11 @@
 
 }
 
+.loading h3{
+  margin-left:4.5rem;
+  
+}
+
 .loading::after{
 
     content: "";

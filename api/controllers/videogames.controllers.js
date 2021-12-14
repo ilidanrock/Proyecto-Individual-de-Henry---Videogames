@@ -5,6 +5,7 @@ const {
   putGenresInDB,
   createdVideogame,
 } = require("../services/db.service");
+
 const { Genre } = require("../src/db");
 
 const getAllGames = async () => {
@@ -97,7 +98,6 @@ const postGame = (req, res, next) => {
     } = req.body;
 
     let rating = parseFloat(req.body.rating);
-    console.log("este es el tipo rating", rating);
 
     createdVideogame(
       name,

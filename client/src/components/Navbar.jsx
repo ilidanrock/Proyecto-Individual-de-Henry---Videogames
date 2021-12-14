@@ -11,7 +11,7 @@ import SearchBar from "./SearchBar";
 import s from "../styles/Navbar.module.css";
 import allgames from "../styles/AllGames.module.css"
 
-export default function Navbar({ orden, setcurrentPage, setOrden }) {
+export default function Navbar({  setcurrentPage, setOrden }) {
   const allGenres = useSelector((state) => state.genres);
   const dispatch = useDispatch();
   const infoGetted = useSelector((state) => state.infoGetted);
@@ -59,8 +59,8 @@ export default function Navbar({ orden, setcurrentPage, setOrden }) {
               sortByRating(e);
             }}
           >
-            <option value="asc">Rating 1 -10 </option>
-            <option value="desc">Rating 10 - 1</option>
+            <option value="asc">Rating 0 - 5 </option>
+            <option value="desc">Rating 5 - 0</option>
           </select>
           <select
             onChange={(e) => handlefilterCreated(e)}

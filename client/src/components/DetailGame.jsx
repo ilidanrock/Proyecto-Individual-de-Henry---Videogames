@@ -64,7 +64,7 @@ export default function DetailGame() {
         </div>
       ) : (
         <div className={s.loading}>
-          <h3 style={{ color: "#f1f1f1", fontSize: "3rem" }}>Loading</h3>
+          <h3 style={{ color: "#f1f1f1", fontSize: "3rem", }}>Loading</h3>
         </div>
       )}
     </div>

@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('videogame', {
     id: {
-      type: DataTypes.UUIDV4,//esto es lo que garantiza que no se va a repetir
+      type: DataTypes.UUID,//esto es lo que garantiza que no se va a repetir
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,// este campo no puede quedar en blanco
       primaryKey: true
