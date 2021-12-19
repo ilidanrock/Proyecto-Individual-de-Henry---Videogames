@@ -3,34 +3,63 @@ const { API_KEY } = process.env;
 
 const axios = require("axios");
 
-const getApiGames = async () => {
-  let apiInfo = [];
+const getApiGames =  async () => {
+  // let result 
+  // let urls = [`https://api.rawg.io/api/games?key=${API_KEY}`]
+  // axios(urls[0])
+  //   .then((resp) => resp.data.next)
+  //   .then((resp) => [2,3, 4, 5].map((x) => axios(`${resp.slice(0,72)}${x}`)))
+  //   .then(resp => Promise.all([axios(urls[0]),...resp]))
+  //   .then(resp => { result = resp
+  //     result = result.map((el) => el.data.results);
+  //     return result = result.flat().map((game) => {
+  //       return {
+  //         id: game.id,
+  //         name: game.name,
+  //         rating: game.rating,
+  //         background_image: game.background_image,
+  //         genres: game.genres.map((ele) => {
+  //           return { name: ele.name };
+  //         }),
+  //         platforms: game.platforms.map((ele) => {
+  //           return { name: ele.platform.name };
+  //         }),
+  //         createdInDb: false,
+  //       };
+  //     });
+  //   })
+  //   .then(x => console.log(x))
 
-  const promises =[
+  
+  
+
+
+  
+  const promises = [
     axios(`https://api.rawg.io/api/games?key=${API_KEY}`),
     axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`),
     axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=3`),
     axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=4`),
     axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=5`),
-  ]
+  ];
 
   let gamesAPI = await Promise.all(promises);
-  gamesAPI = gamesAPI.map((el) => el.data.results)
+  gamesAPI = gamesAPI.map((el) => el.data.results);
   gamesAPI = gamesAPI.flat().map((game) => {
-    return{
-        id: game.id,
-        name: game.name,
-        rating: game.rating,
-        background_image: game.background_image,
-        genres: game.genres.map((ele) => {
-          return { name: ele.name };
-        }),
-        platforms: game.platforms.map((ele) => {
-          return { name: ele.platform.name };
-        }),
-        createdInDb: false,
-    }
-  })
+    return {
+      id: game.id,
+      name: game.name,
+      rating: game.rating,
+      background_image: game.background_image,
+      genres: game.genres.map((ele) => {
+        return { name: ele.name };
+      }),
+      platforms: game.platforms.map((ele) => {
+        return { name: ele.platform.name };
+      }),
+      createdInDb: false,
+    };
+  });
   // const pages = [`https://api.rawg.io/api/games?key=${API_KEY}`];
 
   // for (let i = 0; i < 5; i++) {
@@ -59,10 +88,7 @@ const getApiGames = async () => {
 };
 
 const gameAPI = (id) => {
-
-    return axios(
-        `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-      );
+  return axios(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
   // const apiUrl = axios(
   //   `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
   // );
@@ -87,13 +113,13 @@ const gameAPI = (id) => {
   // return game;
 };
 
-//genres pide la informacion del API externa 
+//genres pide la informacion del API externa
 const genres = async () => {
   const genresApi = await axios(
     `https://api.rawg.io/api/genres?key=${API_KEY}`
   );
   const genEach = genresApi.data.results.map((ele) => ele.name);
-  return genEach
+  return genEach;
 };
 
 module.exports = {

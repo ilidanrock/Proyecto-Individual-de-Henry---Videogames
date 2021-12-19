@@ -19,11 +19,11 @@ export default function AllGames() {
   const [orden, setOrden] = useState("");
   const [currentPage, setcurrentPage] = useState(1);
   const [videoGamesPerPage] = useState(15);
-  const indexOfLastVideogamePlusOne = currentPage * videoGamesPerPage;
-  const indexOffirstVideogame = indexOfLastVideogamePlusOne - videoGamesPerPage;
+  const indexOfLast = currentPage * videoGamesPerPage;
+  const indexOffirst = indexOfLast - videoGamesPerPage;
   const currentVideogames = allVideogames.slice(
-    indexOffirstVideogame,
-    indexOfLastVideogamePlusOne
+    indexOffirst,
+    indexOfLast
   );
 
   //1-----15

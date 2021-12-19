@@ -2,11 +2,13 @@
 const initialState = {
   allVideoGames: [],
   videogames: [],
+  isFilteredByCreated: false,
+  isFilteredByGenre: false,
   FilteredByCreated: [],
   FilteredByGenre: [],
   genres: [],
   detail: [],
-  infoGetted:false,
+  infoGetted: false,
   nogameget: false,
 };
 function rootReducer(state = initialState, action) {
@@ -16,71 +18,94 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: action.payload,
         allVideoGames: action.payload,
-        infoGetted: true
+        infoGetted: true,
       };
     case "GET_ALL_GENRES":
       return {
         ...state,
         genres: action.payload,
       };
-    case "FILTER_BY_GENRE":
-      const allGames =
-        state.FilteredByCreated.length === 0
-          ? state.allVideoGames
-          : state.FilteredByCreated;
-      const genresFiltered =
-        action.payload === "all"
-          ? state.allVideoGames
-          : allGames.filter((el) =>
-              el.genres.some((ele) => ele.name === action.payload)
-            );
-      console.log(genresFiltered);
-      return {
-        ...state,
-        videogames: genresFiltered,
-        FilteredByGenre: genresFiltered,
-      };
+
     case "FILTER_CREATED":
-      const allGame =
-        state.FilteredByGenre.length === 0
-          ? state.allVideoGames
-          : state.FilteredByGenre;
+      // if (action.payload === "all") {
+      //   const allGame = state.allVideoGames;
+      //   return {
+      //     ...state,
+      //     videogames: allGame,
+      //     isFilteredByCreated: false,
+      //   };
+      // } else if (action.payload === "created") {
+      //   const allGame = state.videogames;
+      //   const createdFilter = allGame.filter((el) => el.createdInDb === true);
+      //   return {
+      //     ...state,
+      //     FilteredByCreated: createdFilter,
+      //     isFilteredByCreated: true,
+      //   };
+      // } else {
+      //   const allGame = state.videogames;
+      //   const createdFilter = allGame.filter((el) => el.createdInDb === false);
+      //   return {
+      //     ...state,
+      //     FilteredByCreated: createdFilter,
+      //     isFilteredByCreated: true,
+      //   };
+      // }
+      const allGame = state.allVideoGames;
       const createdFilter =
         action.payload === "created"
           ? allGame.filter((el) => el.createdInDb === true)
-          : action.payload==="all"? allGame : allGame.filter((el) => el.createdInDb === false );
+          : action.payload === "all"
+          ? allGame
+          : allGame.filter((el) => el.createdInDb === false);
       return {
         ...state,
         videogames: createdFilter,
-        FilteredByCreated: createdFilter,
+        FilteredByCreated: true,
       };
-    
-    case 'ORDER_BY_RATING':
-      const sortedRating = 
-        action.payload === "asc"?
-        state.videogames.sort((a, b) => {
-          if (a.rating > b.rating) {
-            return 1;
-          }
-          if (a.rating < b.rating) {
-            return -1;
-          }
-          return 0;
-        })
-      : state.videogames.sort((a, b) => {
-          if (a.rating > b.rating) {
-            return -1;
-          }
-          if (a.rating < b.rating) {
-            return 1;
-          }
-          return 0;
-        });
-      
+
+    case "FILTER_BY_GENRE":
+      const allGames = state.FilteredByCreated
+        ? state.videogames
+        : state.allVideoGames;
+      const genresFiltered =
+        action.payload === "all"
+          ? allGames
+          : allGames.filter((el) =>
+              el.genres.some((ele) => ele.name === action.payload)
+            );
       return {
         ...state,
-        videogames:sortedRating,
-      }
+        videogames: genresFiltered,
+        isFilteredByGenre: true,
+      };
+
+    case "ORDER_BY_RATING":
+      const sortedRating =
+        action.payload === "asc"
+          ? state.videogames.sort((a, b) => {
+              if (a.rating > b.rating) {
+                return 1;
+              }
+              if (a.rating < b.rating) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.videogames.sort((a, b) => {
+              if (a.rating > b.rating) {
+                return -1;
+              }
+              if (a.rating < b.rating) {
+                return 1;
+              }
+              return 0;
+            });
+
+      return {
+        ...state,
+        videogames: sortedRating,
+      };
     case "ORDER_BY_NAME":
       let sortedArr =
         action.payload === "asc"
@@ -113,7 +138,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: action.payload,
         nogameget: false,
-        infoGetted:true,
+        infoGetted: true,
       };
     case "POST_CHARACTER": // posiblemente este de mas
       return {
@@ -125,23 +150,23 @@ function rootReducer(state = initialState, action) {
         detail: [action.payload],
       };
     case "CLEAR_DETAIL":
-      return{
+      return {
         ...state,
-        detail:[],
-      }
+        detail: [],
+      };
     case "UPDATE_INFO":
-      return{
+      return {
         ...state,
         infoGetted: false,
-        nogameget: false
-      }
+        nogameget: false,
+      };
     case "NO_FOUND_GAME":
-      return{
+      return {
         ...state,
         videogames: action.payload,
         nogameget: true,
-        infoGetted:true,
-      }
+        infoGetted: true,
+      };
     default:
       return state;
   }
