@@ -2,10 +2,6 @@
 const initialState = {
   allVideoGames: [],
   videogames: [],
-  isFilteredByCreated: false,
-  isFilteredByGenre: false,
-  FilteredByCreated: [],
-  FilteredByGenre: [],
   genres: [],
   detail: [],
   infoGetted: false,
@@ -60,14 +56,11 @@ function rootReducer(state = initialState, action) {
           : allGame.filter((el) => el.createdInDb === false);
       return {
         ...state,
-        videogames: createdFilter,
-        FilteredByCreated: true,
+        videogames: createdFilter
       };
 
     case "FILTER_BY_GENRE":
-      const allGames = state.FilteredByCreated
-        ? state.videogames
-        : state.allVideoGames;
+      const allGames = state.allVideoGames;
       const genresFiltered =
         action.payload === "all"
           ? allGames
@@ -77,7 +70,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         videogames: genresFiltered,
-        isFilteredByGenre: true,
       };
 
     case "ORDER_BY_RATING":
