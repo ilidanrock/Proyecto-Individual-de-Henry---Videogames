@@ -23,30 +23,6 @@ function rootReducer(state = initialState, action) {
       };
 
     case "FILTER_CREATED":
-      // if (action.payload === "all") {
-      //   const allGame = state.allVideoGames;
-      //   return {
-      //     ...state,
-      //     videogames: allGame,
-      //     isFilteredByCreated: false,
-      //   };
-      // } else if (action.payload === "created") {
-      //   const allGame = state.videogames;
-      //   const createdFilter = allGame.filter((el) => el.createdInDb === true);
-      //   return {
-      //     ...state,
-      //     FilteredByCreated: createdFilter,
-      //     isFilteredByCreated: true,
-      //   };
-      // } else {
-      //   const allGame = state.videogames;
-      //   const createdFilter = allGame.filter((el) => el.createdInDb === false);
-      //   return {
-      //     ...state,
-      //     FilteredByCreated: createdFilter,
-      //     isFilteredByCreated: true,
-      //   };
-      // }
       const allGame = state.allVideoGames;
       const createdFilter =
         action.payload === "created"

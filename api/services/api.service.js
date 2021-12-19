@@ -4,37 +4,6 @@ const { API_KEY } = process.env;
 const axios = require("axios");
 
 const getApiGames =  async () => {
-  // let result 
-  // let urls = [`https://api.rawg.io/api/games?key=${API_KEY}`]
-  // axios(urls[0])
-  //   .then((resp) => resp.data.next)
-  //   .then((resp) => [2,3, 4, 5].map((x) => axios(`${resp.slice(0,72)}${x}`)))
-  //   .then(resp => Promise.all([axios(urls[0]),...resp]))
-  //   .then(resp => { result = resp
-  //     result = result.map((el) => el.data.results);
-  //     return result = result.flat().map((game) => {
-  //       return {
-  //         id: game.id,
-  //         name: game.name,
-  //         rating: game.rating,
-  //         background_image: game.background_image,
-  //         genres: game.genres.map((ele) => {
-  //           return { name: ele.name };
-  //         }),
-  //         platforms: game.platforms.map((ele) => {
-  //           return { name: ele.platform.name };
-  //         }),
-  //         createdInDb: false,
-  //       };
-  //     });
-  //   })
-  //   .then(x => console.log(x))
-
-  
-  
-
-
-  
   const promises = [
     axios(`https://api.rawg.io/api/games?key=${API_KEY}`),
     axios(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`),
@@ -60,57 +29,11 @@ const getApiGames =  async () => {
       createdInDb: false,
     };
   });
-  // const pages = [`https://api.rawg.io/api/games?key=${API_KEY}`];
-
-  // for (let i = 0; i < 5; i++) {
-  //   const resp = await axios.get(`${pages[i]}`);
-  //   pages.push(resp.data.next);
-  //   //Por cada iteracion
-  //   let gamesFromApi = resp.data.results.map((game) => {
-  //     return {
-  //       id: game.id,
-  //       name: game.name,
-  //       rating: game.rating,
-  //       background_image: game.background_image,
-  //       genres: game.genres.map((ele) => {
-  //         return { name: ele.name };
-  //       }),
-  //       platforms: game.platforms.map((ele) => {
-  //         return { name: ele.platform.name };
-  //       }),
-  //       createdInDb: false,
-  //     };
-  //   });
-
-  //   apiInfo = apiInfo.concat(gamesFromApi);
-  // }
   return gamesAPI;
 };
 
 const gameAPI = (id) => {
   return axios(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
-  // const apiUrl = axios(
-  //   `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-  // );
-
-  // const data = apiUrl.data;
-
-  // let game = {
-  //   id: data.id,
-  //   name: data.name,
-  //   description: data.description,
-  //   released: data.released,
-  //   background_image: data.background_image,
-  //   rating: data.rating,
-  //   genres: data.genres.map((ele) => {
-  //     return { name: ele.name };
-  //   }),
-  //   platforms: data.platforms.map((ele) => {
-  //     return { platforms: ele.platform.name };
-  //   }),
-  // };
-
-  // return game;
 };
 
 //genres pide la informacion del API externa

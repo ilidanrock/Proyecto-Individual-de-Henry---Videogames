@@ -19,7 +19,6 @@ const gameBD = (id) => {
       {
         model: Genre,
         through: {
-          // esto es para hacer validaciones
           attributes: [],
         },
       },
@@ -82,7 +81,6 @@ const createdVideogame = (
     result1.addGenre(result2);
     console.log("done");
   });
-  // videogameCreated.addGenre(generoDb);
 };
 module.exports = {
   getDBGames,
@@ -90,4 +88,4 @@ module.exports = {
   putGenresInDB,
   createdVideogame,
 };
-// hasta aqui
+

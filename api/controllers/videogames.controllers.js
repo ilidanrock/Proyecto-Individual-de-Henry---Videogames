@@ -25,11 +25,11 @@ const getVideoGames = async (req, res, next) => {
         .slice(0, 15);
       gameName.length
         ? res.send(gameName).status(200)
-        : res.send([]).status(400); //rompe aqui
+        : res.send([]).status(400); 
     } else {
       res.status(200).send(gamesTotal);
     }
-    //console.log(gamesTotal.length)
+    
   } catch (error) {
     next(error);
   }
@@ -40,8 +40,6 @@ const getVideogameByID = (req, res, next) => {
   if (id.includes("-")) {
     try {
       gameBD(id).then((game) => res.status(200).json(game));
-      // console.log("este es el videogame de la base de datos",game);
-      // return res.status(200).json(game);
     } catch (error) {
       next(error);
     }
@@ -67,7 +65,6 @@ const getVideogameByID = (req, res, next) => {
           return game;
         })
         .then((game) => res.status(200).json(game));
-      // return res.status(200).json(game);
     } catch (error) {
       console.log("error en la ruta en el pedido al api ");
       next(error);
