@@ -61,6 +61,7 @@ export default function AllGames() {
           handleonChargeGames(e);
         }}
         className={s.refresh}
+        style={{ margin: "3rem 0" }}
       >
         Refresh
       </button>
