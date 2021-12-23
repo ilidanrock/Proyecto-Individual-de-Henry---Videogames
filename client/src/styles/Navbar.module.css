@@ -35,7 +35,7 @@
     background-color: rgb(218, 213, 213);
     color: #a87e3e;
     font-size: 1.5rem;
-    
+
 }
 .orderGeneros{
     width: 9rem;
@@ -54,8 +54,66 @@
     border: 0.5px outset #c2dee9;
     text-decoration: none;
     padding: 0 0.7rem 0 0.7rem ;
-   
+
 }
 .create p {
-    margin: 0 0.5px 0 0.5px; 
+    margin: 0 0.5px 0 0.5px;
+}
+
+.links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.toogleButtom{
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+
+}
+
+.toogleButtom .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #07cbe9;
+    border-radius: 10px ;
+}
+
+@media (max-width: 768px) {
+    .toogleButtom{
+        display: flex;
+    }
+    .links{
+        display: none;
+        width: 100%;
+        ;
+    }
+    .menu{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    .links ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .links select{
+        text-align: center;
+        text-decoration: none;
+    }
+    .links select option{
+        padding: .5rem 1rem;
+        text-align: center;
+    }
+    .orderGeneros{
+        width: auto;
+    }
+    .links.active{
+        display: flex;
+    }
 }

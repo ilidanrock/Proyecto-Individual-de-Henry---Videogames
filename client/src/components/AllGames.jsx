@@ -87,6 +87,11 @@ export default function AllGames() {
             );
           })}
       </div>
+      <Paginado
+        videoGamesPerPage={videoGamesPerPage}
+        allVideogames={allVideogames.length}
+        paginado={paginado}
+      ></Paginado>
       <div hidden={!nogameget}>
         <img
           src={errorLog}
