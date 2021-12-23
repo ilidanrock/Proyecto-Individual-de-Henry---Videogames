@@ -11,7 +11,7 @@
     min-height: 30rem;
     justify-content: center;
     flex-direction: column;
-   
+   width: 100%;
 }
 .boton {
 
