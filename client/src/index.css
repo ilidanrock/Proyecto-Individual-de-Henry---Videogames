@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
 }
