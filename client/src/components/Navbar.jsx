@@ -97,11 +97,11 @@ export default function Navbar({  setcurrentPage, setOrden }) {
           </ul>
         </div>
         <div>
-          <a href="#" onClick={()=>LaboratoriaDoggies()} className={s.toogleButtom} >
+          <button onClick={()=>LaboratoriaDoggies()} className={s.toogleButtom} >
             <span className={s.bar}></span>
             <span className={s.bar}></span>
             <span className={s.bar}></span>
-          </a>
+          </button>
         </div>
         <div className={s.searchCreate}>
           <SearchBar className={s.search} />
