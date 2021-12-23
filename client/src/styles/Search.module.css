@@ -19,5 +19,9 @@
     align-items: center;
     display: flex;
     background-color: rgb(218, 213, 213);
+    border-radius: 1.6rem;
+}
+@media (max-width: 768px) {
+
 
 }

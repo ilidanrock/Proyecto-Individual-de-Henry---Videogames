@@ -1,7 +1,7 @@
 .navbar{
     width: 99%;
     padding: 0.3125rem;
-    margin: 2rem 0 2rem 0.5rem;
+    margin: 2rem auto 2rem auto;
     border: #a87e3e 0.09rem solid;
     border-radius: 1.875rem 0rem 1.875rem 0rem;
 
