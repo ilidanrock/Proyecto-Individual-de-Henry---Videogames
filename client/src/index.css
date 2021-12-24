@@ -13,7 +13,7 @@ html{
 }
 
 body {
-  position: fixed;
+  position:-webkit-sticky;
   width: -webkit-fill-available;
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
