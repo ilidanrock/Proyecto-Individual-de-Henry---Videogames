@@ -13,8 +13,13 @@ html{
 }
 
 body {
-  position:-webkit-sticky;
-  width: -webkit-fill-available;
+  height: 100%;
+  position:absolute;
+  /* prevent overscroll bounce*/
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* iOS velocity scrolling */
+
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
   background-repeat: no-repeat;
