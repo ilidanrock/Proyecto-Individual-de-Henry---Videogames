@@ -13,8 +13,7 @@ html{
 }
 
 body {
-
-  background-size: auto calc(100vh + 100px);
+  height: -webkit-fill-available;
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
   background-repeat: no-repeat;
