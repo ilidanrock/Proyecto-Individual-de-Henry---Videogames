@@ -10,6 +10,7 @@ html{
   font-size: 70%;
   font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
+
 }
 body {
 
@@ -19,6 +20,7 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
+  width: -webkit-fill-available;
 }
 
 
