@@ -5,13 +5,12 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: 65% center;
-    background-size: auto calc(100vh + 100px);
     display: flex;
     height: 100vh;
     min-height: 30rem;
     justify-content: center;
     flex-direction: column;
-   
+    
 }
 .boton {
 

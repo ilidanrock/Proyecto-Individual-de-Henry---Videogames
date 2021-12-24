@@ -41,4 +41,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    var bg = $('root')
+    function resizeBackground() {
+    bg.height( $(window).height() + 60);
+    }
+    $(window).resize(resizeBackground);
+    resizeBackground();
+  </script>
 </html>
