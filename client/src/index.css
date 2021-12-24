@@ -10,11 +10,13 @@ html{
   font-size: 70%;
   font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
+  overflow: hidden;
+  width: 100%;
 }
 
 body {
   height: 100%;
-  position:absolute;
+  position: fixed;
   /* prevent overscroll bounce*/
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -25,6 +27,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  width: -webkit-fill-available;
 }
 
 
