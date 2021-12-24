@@ -10,17 +10,11 @@ html{
   font-size: 70%;
   font-family: 'Nunito', sans-serif;
   scroll-behavior: smooth;
-  overflow: hidden;
-  width: 100%;
+
 }
 
 body {
-  height: 100%;
-  position: fixed;
-  /* prevent overscroll bounce*/
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  /* iOS velocity scrolling */
+
 
   box-sizing: border-box;
   background: linear-gradient(207.8deg, #201E1C 16.69%, #325e8f 100%);
