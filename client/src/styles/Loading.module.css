@@ -7,7 +7,7 @@
 }
 
 .loading h3{
-  margin-left:4.5rem;
+  margin: 0 auto;
   
 }
 
@@ -17,11 +17,10 @@
     width: 80px;
     height:80px;
     border: 10px solid  transparent;
-    border-top-color: rgb(0, 217, 255);
     border-top-color: rgb(0, 217 ,255);
     border-radius: 50%;
     animation: loading 1s linear infinite;
-    margin-left: calc(46% );
+    margin: 20vh auto;
 }
 @keyframes loading {
     from {
