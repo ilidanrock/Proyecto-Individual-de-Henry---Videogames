@@ -68,7 +68,7 @@ export default function AllGames() {
       <div>
         {!infoGetted && (
           <div className={style.loading}>
-            <h3 style={{ color: "#f1f1f1", fontSize: "3rem" }}>Loading...</h3>
+            <h3>Loading...</h3>
           </div>
         )}
       </div>

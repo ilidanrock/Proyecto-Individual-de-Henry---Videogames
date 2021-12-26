@@ -7,8 +7,9 @@
 }
 
 .loading h3{
-  margin: 0 auto;
-  
+  margin: 4rem auto 1rem auto;
+  color: #f1f1f1; 
+  font-size: 3rem
 }
 
 .loading::after{
@@ -20,7 +21,7 @@
     border-top-color: rgb(0, 217 ,255);
     border-radius: 50%;
     animation: loading 1s linear infinite;
-    margin: 20vh auto;
+    margin: 10vh auto;
 }
 @keyframes loading {
     from {
