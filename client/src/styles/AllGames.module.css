@@ -36,6 +36,17 @@
   color: #F1f1f1f1;
 }
 
+@media (max-width: 425px){
+  .gripcards{
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 33rem))
+  }
+}
+@media (max-width: 768px){
+  .gripcards{
 
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 33rem))
+  }
+  
+}
 /* grid-template-columns: repeat(auto-fill, minmax(5rem, 33rem)); */
 

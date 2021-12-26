@@ -1,18 +1,16 @@
 .cardDetail{
-    margin-top: 1%;
-    display: relative;
     justify-content: space-evenly;
-    width: 30%;
     padding: 1% 1% 1% 1%;
     background: rgba(0, 0, 0, 0.67);
-    margin: 2.5% 0 2.5% 0;
+    margin: 1rem 1.5rem;
     border: 1.5px solid #eada9d;
     box-sizing: border-box;
     border-radius: 0px 20px;
     text-decoration: none;
     color: #eada9d;
     box-shadow: 10px 10px 0px -7px rgb(0 0 0 / 75%);
-    width: 50rem;
+    width: -webkit-fill-available;
+    
 }
 .container{
     display: flex;
@@ -38,4 +36,5 @@
 }
 .cardDetail img{
     max-width: 40rem;
+    width: -webkit-fill-available;
 }
