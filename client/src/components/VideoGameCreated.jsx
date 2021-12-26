@@ -27,6 +27,7 @@ export default function VideoGameCreated() {
     genre: [],
   });
 
+
   useEffect(() => {
     dispatch(getAllGenres());
     dispatch(getVideogames());

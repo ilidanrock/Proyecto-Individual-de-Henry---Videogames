@@ -8,7 +8,7 @@ import btn from "../styles/AllGames.module.css";
 
 export default function DetailGame() {
   const params = useParams().id;
-
+  const myGame = useSelector((state) => state.detail);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +19,10 @@ export default function DetailGame() {
     };
   }, [params, dispatch]);
 
-  const myGame = useSelector((state) => state.detail);
+  // function scrollToTop() {
+  //   window.scrollTo(0,0)
+  // }
+    
   return (
     <div className={s1.container}>
       {myGame.length > 0 ? (
@@ -64,7 +67,7 @@ export default function DetailGame() {
         </div>
       ) : (
         <div className={s.loading}>
-          <h3 style={{ color: "#f1f1f1", fontSize: "3rem", }}>Loading</h3>
+          <h3>Loading</h3>
         </div>
       )}
     </div>
