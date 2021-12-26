@@ -20,10 +20,12 @@ export default function Navbar({  setcurrentPage, setOrden }) {
 
   function handlefilterCreated(e) {
     dispatch(filterCreated(e.target.value));
+    setcurrentPage(1);
   }
 
   function handleFilteredbyGenre(e) {
     dispatch(filterVideogamesbyGenre(e.target.value));
+    setcurrentPage(1);
   }
 
   function handleSort(e) {
