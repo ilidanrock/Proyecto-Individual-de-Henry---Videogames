@@ -67,12 +67,13 @@ export default function AllGames() {
       </button>
       <div>
         {!infoGetted && (
-          <div className={style.loading}>
+          <div className={style.loading} >
             <h3>Loading...</h3>
           </div>
         )}
       </div>
-      <div className={s.gripcards}>
+
+      { !nogameget?(      <div className={s.gripcards} >
         {infoGetted &&
           currentVideogames?.map((ele, s) => {
             return (
@@ -86,17 +87,18 @@ export default function AllGames() {
               />
             );
           })}
-      </div>
-      <div hidden={!nogameget}>
+      </div>): (      <div className={s.message}>
         <img
           src={errorLog}
           alt="No se encontraron coincidencias en la busqueda"
           width="100px"
         />
-        <h3 style={{ margin: "0 0 2rem 0", color: "#F1f1f1f1" }}>
-          No hay coincidencias en tu busqueda.
+        <h3>
+          No hubo coincidencias en tu busqueda.
         </h3>
-      </div>
+      </div>)}
+
+
     </div>
   );
 }

@@ -25,12 +25,17 @@
     
     
 }
-@media (max-width: 768px) {
-  .gripcards{
-    
-    grid-template-columns: repeat(auto-fill, minmax(5rem, 33rem));
+
+.message{
+  margin: 20vh auto;
+}
+
+.message h3{
+  font-size: 1.8rem;
+  margin: 0 0 2rem 0 ; 
+  color: #F1f1f1f1;
+}
 
 
-}
-}
+/* grid-template-columns: repeat(auto-fill, minmax(5rem, 33rem)); */
 
