@@ -1,40 +1,40 @@
-.cardDetail{
-    justify-content: space-evenly;
-    padding: 1% 1% 1% 1%;
-    background: rgba(0, 0, 0, 0.67);
-    margin: 1rem 1.5rem;
-    border: 1.5px solid #eada9d;
-    box-sizing: border-box;
-    border-radius: 0px 20px;
-    text-decoration: none;
-    color: #eada9d;
-    box-shadow: 10px 10px 0px -7px rgb(0 0 0 / 75%);
-    width: -webkit-fill-available;
-    
+.cardDetail {
+  justify-content: space-evenly;
+  padding: 1% 1% 1% 1%;
+  background: rgba(0, 0, 0, 0.67);
+  margin: 1rem 1.5rem;
+  border: 1.5px solid #eada9d;
+  box-sizing: border-box;
+  border-radius: 0px 20px;
+  text-decoration: none;
+  color: #eada9d;
+  box-shadow: 10px 10px 0px -7px rgb(0 0 0 / 75%);
+  width: -webkit-fill-available;
+  max-width: 50rem;
 }
-.container{
-    display: flex;
-    justify-content: center;
+.container {
+  display: flex;
+  justify-content: center;
 }
-.generos{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.generos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.generos div{
-    font-size: 1.3rem;
-    margin: 1rem;
+.generos div {
+  font-size: 1.3rem;
+  margin: 1rem;
 }
-.descripcion{
-    font-size: 1.3rem;
-    text-align:center;
-    margin: 1rem;
+.descripcion {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 1rem;
 }
-.rating{
-    font-size: 1.3rem;
-    margin: 1rem;
+.rating {
+  font-size: 1.3rem;
+  margin: 1rem;
 }
-.cardDetail img{
-    max-width: 40rem;
-    width: -webkit-fill-available;
+.cardDetail img {
+  max-width: 40rem;
+  width: -webkit-fill-available;
 }
