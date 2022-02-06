@@ -34,14 +34,6 @@ let sequelize =
         },
         ssl: true,
       })
-    // new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dfaupq847g3935`,{
-    //   dialectOptions: {
-    //     ssl: {
-    //       require: true,
-    //       rejectUnauthorized: false
-    //     }
-    //   }
-    // })
     : new Sequelize(
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
         { logging: false, native: false }
