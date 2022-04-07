@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export function getVideogames() {
   return async function (dispatch) {
     try {
@@ -58,24 +57,20 @@ export function orderByName(payload) {
 export function getVideoGamebyName(payload) {
   return async function (dispatch) {
     try {
-      var json = await axios(
-        `/videogames?name=${payload}`
-      );
+      var json = await axios(`/videogames?name=${payload}`);
       if (!json.data.length) {
         dispatch({
           type: "NO_FOUND_GAME",
           payload: json.data,
-        })
-      }else{ dispatch({
-        
-        type: "GET_GAMES_BY_NAME",
-        payload: json.data,
-      });
-    }
-
+        });
+      } else {
+        dispatch({
+          type: "GET_GAMES_BY_NAME",
+          payload: json.data,
+        });
+      }
     } catch (error) {
       console.log(error);
-
     }
   };
 }
@@ -83,10 +78,7 @@ export function getVideoGamebyName(payload) {
 export function postVideogame(payload) {
   return async function (dispatch) {
     try {
-      const response = await axios.post(
-        "/videogame",
-        payload
-      );
+      const response = await axios.post("/videogame", payload);
       console.log(response);
       return response;
     } catch (error) {
@@ -117,7 +109,7 @@ export function clearDetail() {
 }
 
 export function upDate() {
-    return{
-        type:"UPDATE_INFO"
-    }
+  return {
+    type: "UPDATE_INFO",
+  };
 }

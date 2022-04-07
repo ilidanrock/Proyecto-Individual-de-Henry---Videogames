@@ -21,10 +21,7 @@ export default function AllGames() {
   const [videoGamesPerPage] = useState(15);
   const indexOfLast = currentPage * videoGamesPerPage;
   const indexOffirst = indexOfLast - videoGamesPerPage;
-  const currentVideogames = allVideogames.slice(
-    indexOffirst,
-    indexOfLast
-  );
+  const currentVideogames = allVideogames.slice(indexOffirst, indexOfLast);
 
   //1-----15
 
@@ -36,7 +33,6 @@ export default function AllGames() {
     dispatch(getVideogames());
     dispatch(upDate());
   }
-
 
   useEffect(() => {
     dispatch(getAllGenres());
@@ -67,38 +63,38 @@ export default function AllGames() {
       </button>
       <div>
         {!infoGetted && (
-          <div className={style.loading} >
+          <div className={style.loading}>
             <h3>Loading...</h3>
           </div>
         )}
       </div>
 
-      { !nogameget?(      <div className={s.gripcards} >
-        {infoGetted &&
-          currentVideogames?.map((ele, s) => {
-            return (
-              <GameCard
-                key={ele.id}
-                id={ele.id}
-                name={ele.name}
-                background_image={ele.background_image}
-                genres={ele.genres}
-                rating={ele.rating}
-              />
-            );
-          })}
-      </div>): (      <div className={s.message}>
-        <img
-          src={errorLog}
-          alt="No se encontraron coincidencias en la busqueda"
-          width="100px"
-        />
-        <h3>
-          No hubo coincidencias en tu busqueda.
-        </h3>
-      </div>)}
-
-
+      {!nogameget ? (
+        <div className={s.gripcards}>
+          {infoGetted &&
+            currentVideogames?.map((ele, s) => {
+              return (
+                <GameCard
+                  key={ele.id}
+                  id={ele.id}
+                  name={ele.name}
+                  background_image={ele.background_image}
+                  genres={ele.genres}
+                  rating={ele.rating}
+                />
+              );
+            })}
+        </div>
+      ) : (
+        <div className={s.message}>
+          <img
+            src={errorLog}
+            alt="No se encontraron coincidencias en la busqueda"
+            width="100px"
+          />
+          <h3>No hubo coincidencias en tu busqueda.</h3>
+        </div>
+      )}
     </div>
   );
 }
