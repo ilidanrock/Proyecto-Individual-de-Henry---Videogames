@@ -80,7 +80,6 @@ export default function VideoGameCreated() {
   };
 
   //Deshabilitacion del boton de enviar.
-
   const disabledSummit = useMemo(() => {
     if (
       input.name.length > 0 &&
