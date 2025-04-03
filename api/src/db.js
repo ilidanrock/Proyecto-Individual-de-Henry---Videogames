@@ -2,42 +2,22 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  PGUSER, PGPASSWORD, PGHOST, PGDATABASE, PGPORT
-} = process.env;
-
-let sequelize =
-  true ?
-    new Sequelize({
-      database: PGDATABASE,
-      dialect: "postgres",
-      host: PGHOST,
-      port: PGPORT,
-      username: PGUSER,
-      password: PGPASSWORD,
-      pool: {
-        max: 3,
-        min: 1,
-        idle: 10000,
-      },
-      dialectOptions: {
-        ssl: {
-          require: true,
-          // Ref.: https://github.com/brianc/node-postgres/issues/2009
-          rejectUnauthorized: false,
-        },
-        keepAlive: true,
-      },
-      ssl: true,
-    })
-    : new Sequelize(
-      `postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}/videogames`,
-      { logging: false, native: false }
-    );
+const { config } = require('./config');
 
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
+
+const options = {
+  dialect: config.dbEngine,
+  logging: config.isProd ? false : console.log,
+}
+
+if (config.isProd) {
+  options.dialectMOdule = require('pg'); ;
+}
+
+const sequelize = new Sequelize(config.dbUrl, options);
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, '/models'))
